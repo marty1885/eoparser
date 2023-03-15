@@ -2,6 +2,16 @@ import eoparser
 from termcolor import colored
 parser = eoparser.eoparser()
 
+
+# Workaround: invoking empty commands on Windows triggers the default console to start processing VT100
+# codes. Not sure why. But it works. heh
+# ref: https://stackoverflow.com/questions/51091680/activating-vt100-via-os-system
+import os
+import platform
+if platform.system() == "Windows":
+    os.system("")
+
+
 txt = """
 Esperanto, origine la Lingvo Internacia, estas la plej disvastiĝinta internacia planlingvo. En 1887 Esperanton parolis nur manpleno da homoj; Esperanto havis unu el la plej malgrandaj
 lingvo-komunumoj de la mondo. Ĝi funkciis dekomence kiel lingvo de alternativa komunikado kaj de arta kreipovo. En 2012, la lingvo fariĝis la 64-a tradukebla per Google Translate; En
