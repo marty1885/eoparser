@@ -53,7 +53,7 @@ def to_lower(word: str) -> str:
         return res
 
 def read_as_set(path: str) -> set:
-        f = open(path)
+        f = open(path, encoding = "utf-8")
         s = set()
         for word in f:
                 word = word.replace(' ', '').replace('\t', '').replace('\n', '')
